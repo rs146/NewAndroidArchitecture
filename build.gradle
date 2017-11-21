@@ -34,7 +34,7 @@ ext {
     supportLibraryVersion = "27.0.1"
 
     architectureComponentsVersion = "1.0.0"
-    daggerVersion = "2.11"
+    daggerVersion = "2.13"
     retrofitVersion = "2.3.0"
     okhttpVersion = "3.9.0"
     rxjavaVersion = "2.1.3"

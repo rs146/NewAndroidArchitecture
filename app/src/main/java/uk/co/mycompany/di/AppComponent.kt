@@ -5,7 +5,9 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import uk.co.mycompany.AndroidApp
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = arrayOf(AndroidInjectionModule::class, AppModule::class, ActivityBuilder::class))
 interface AppComponent {
 
