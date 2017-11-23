@@ -15,7 +15,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uk.co.mycompany.api.ApiService
-import uk.co.mycompany.repository.Repository
 import uk.co.mycompany.util.SchedulerProvider
 import java.io.File
 import java.util.*
@@ -40,7 +39,7 @@ class AppModule {
     @Singleton
     fun provideOkHttpClient(application: Application): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
+        interceptor.level = HttpLoggingInterceptor.Level.BASIC
 
         val cacheDir = File(application.cacheDir, UUID.randomUUID().toString())
         // 10 MiB cache
@@ -65,8 +64,4 @@ class AppModule {
                 .client(okHttpClient)
                 .build().create(ApiService::class.java)
     }
-
-    @Provides
-    @Singleton
-    fun provideRepository(apiService: ApiService): Repository = Repository(apiService)
 }
