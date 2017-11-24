@@ -1,23 +1,21 @@
 package uk.co.mycompany.ui.main
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import dagger.android.AndroidInjection
+import dagger.android.DaggerActivity
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.subscribeBy
 
 import uk.co.mycompany.R
 import javax.inject.Inject
 
-class MainActivity: AppCompatActivity() {
+class MainActivity: DaggerActivity() {
 
-    private val compositeDisposable = CompositeDisposable()
+    private val compositeDisposable by lazy { CompositeDisposable() }
 
     @Inject lateinit var mainActivityViewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
