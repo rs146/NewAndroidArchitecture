@@ -28,8 +28,8 @@ class MainActivity: DaggerActivity() {
     }
 
     override fun onDestroy() {
+        super.onDestroy()
         compositeDisposable.clear()
         compositeDisposable.dispose()
-        super.onDestroy()
     }
 }
