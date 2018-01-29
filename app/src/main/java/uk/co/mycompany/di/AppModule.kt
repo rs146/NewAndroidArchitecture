@@ -15,13 +15,14 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uk.co.mycompany.api.ApiService
+import uk.co.mycompany.ui.main.di.ViewModelModule
 import uk.co.mycompany.util.SchedulerProvider
 import java.io.File
 import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-@Module
+@Module(includes = arrayOf(ViewModelModule::class))
 class AppModule {
 
     @Provides
