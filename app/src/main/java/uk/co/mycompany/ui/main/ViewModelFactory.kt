@@ -11,8 +11,8 @@ import javax.inject.Singleton
  * Created by Md. Sifat-Ul Haque on 1/29/2018.
  */
 @Singleton
-class ViewModelFactory @Inject
-constructor(private val creators: Map<Class<out ViewModel>, Provider<ViewModel>>) : ViewModelProvider.Factory {
+open class ViewModelFactory
+@Inject constructor(private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>) : ViewModelProvider.Factory {
 
     init {
         Log.d(TAG, "ViewModelFactory: ")
