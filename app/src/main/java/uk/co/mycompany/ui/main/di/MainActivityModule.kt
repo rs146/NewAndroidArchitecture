@@ -8,7 +8,6 @@ import uk.co.mycompany.util.SchedulerProvider
 
 @Module
 class MainActivityModule {
-
     @Provides
     fun provideViewModel(repository: Repository, schedulerProvider: SchedulerProvider) = MainActivityViewModel(repository, schedulerProvider)
 }
